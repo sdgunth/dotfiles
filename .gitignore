@@ -6,7 +6,6 @@
 /.adobe
 /.bash_logout
 /.bash_profile
-.bashrc
 /.cache
 /.config
 /.dbus
@@ -37,7 +36,6 @@
 /.uml
 /.vim
 /.viminfo
-.vimrc
 /.workrave
 /.zlogin
 /.zshrc
