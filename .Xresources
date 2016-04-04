@@ -1,0 +1,24 @@
+!*font: -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+!URxvt.font: -misc-fixed-medium-r-normal--18-120-100-100-C-90-iso10646-1,xft:code2000:autohint=false
+URxvt.font: xft:DejavuSansMono
+
+URxvt.saveLines: 32768
+URxvt.scrollBar: false
+URxvt.background: black
+URxvt.foreground: white
+URxvt.internalBorder: 1
+URxvt.cursorBlink: 0
+URxvt.termName: xterm-color
+URxvt.visualBell: off
+URxvt.urgentOnBell: true
+URxvt.color12: #11AAFF
+
+! Set MetaSendsEscape, makes IRSSI works well.
+xterm*metaSendsEscape: true
+
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+Xft.antialias: 1
+Xft.dpi: 96
+
+Xcursor.theme: osx
