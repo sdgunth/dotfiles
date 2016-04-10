@@ -117,15 +117,19 @@ fi
 set -o vi
 
 alias lh='ls -lh'
+alias lrt='ls -lart'
 
 # emacs-related
 # Set default editors for emacs server
 export ALTERNATE_EDITOR=''
-export EDITOR=emacsclient
+export EDITOR='emacsclient -t'
 alias ei='emacsclient -t'
 
 # bazel aliases
 alias bazel='/home/sam/bin/bazel'
+
+# Gopath to ~/Projects
+export GOPATH='/home/sam/Projects/'
 
 # Setup virtualenv and stuff:
 export WORKON_HOME=$HOME/.virtualenvs
