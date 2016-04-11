@@ -34,6 +34,8 @@
 (require 'company-ycmd)
 (company-ycmd-setup)
 (add-hook 'after-init-hook 'global-company-mode)
+; Make company mode do completes immediately.
+(setq company-idle-delay 0)
 
 ; Setup Flycheck
 (package-install 'flycheck)
@@ -82,3 +84,16 @@
 (setq frame-background-mode 'dark)
 (load-theme 'solarized t)
 
+; Make scrolling work more conservatively
+(setq mouse-wheel-scroll-amount '(1 ((shift . 1))))
+(setq scroll-step 1)
+
+; File-hooks
+; By default, open .h files in c++ mode.
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+; Use python-mode for bazel files.
+(add-to-list 'auto-mode-alist '("'BUILD'" . python-mode))
+(add-to-list 'auto-mode-alist '("'WORKSPACE'" . python-mode))
+(add-to-list 'auto-mode-alist '("\\.bzl\\'" . python-mode))
+
+;; Init complete      
