@@ -72,12 +72,12 @@
 (add-to-list 'load-path "~/.emacs.d/undo-tree")
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
-(evil-mode 1)
+(evil-mode 1) 
 
-; Turn on dvorak keybinds for evil mode
-; (add-to-list 'load-path "~/.emacs.d/evil-dvorak")
-; (require 'evil-dvorak)
-; (global-evil-dvorak-mode 1)
+; I am weird, and changing my key bindings.
+(load-file (expand-file-name "~/.emacs.d/sg_custom/pure-evil.el"))
+(require 'pure-evil)
+(global-pure-evil-mode 1)
 
 ; Turn on solarized theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
