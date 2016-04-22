@@ -113,11 +113,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# User custom:
+# Set vi mode
 set -o vi
 
+# LS aliases
 alias lh='ls -lh'
 alias lrt='ls -lart'
+
+# Alias to make homedir work
+alias dotfile-git='git --git-dir=".homedir-cfg.git"'
 
 # emacs-related
 # Set default editors for emacs server
@@ -135,3 +139,8 @@ export GOPATH='/home/sam/Projects/'
 export WORKON_HOME=$HOME/.virtualenvs
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Bash functions
+function fps {
+    ps aux | grep $1;
+}

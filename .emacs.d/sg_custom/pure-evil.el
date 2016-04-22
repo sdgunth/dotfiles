@@ -24,6 +24,11 @@
   "Global mode to allow pure evil everywhere.")
 
 ; Rebindings for normal mode:
+(evil-define-key 'normal pure-evil-mode-map
+  "s" 'evil-forward-char
+  "t" 'evil-next-line
+  "n" 'evil-previous-line
+  )
 (evil-define-key 'motion-state pure-evil-mode-map
   "s" 'evil-forward-char
   "t" 'evil-next-line

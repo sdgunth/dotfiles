@@ -65,6 +65,9 @@
 (require 'smart-mode-line)
 (sml/setup)
 
+; Put backups under a sub directory, to avoid cluttering stuff.
+(setq backup-directory-alist '(("." . "~/.emacs.d/emacs_backups")))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Evil mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -75,7 +78,7 @@
 (evil-mode 1) 
 
 ; I am weird, and changing my key bindings.
-(load-file (expand-file-name "~/.emacs.d/sg_custom/pure-evil.el"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/sg_custom"))
 (require 'pure-evil)
 (global-pure-evil-mode 1)
 
@@ -87,6 +90,16 @@
 ; Make scrolling work more conservatively
 (setq mouse-wheel-scroll-amount '(1 ((shift . 1))))
 (setq scroll-step 1)
+
+; Show trailing whitespace
+(setq show-trailing-whitespace t)
+
+; Make c++ indentation better
+(defun better-cpp-indents()
+  (c-set-offest 'arglist-intro '+))
+(add-hook 'java-mode-hook 'better-cpp-indents)
+(add-hook 'c-mode-hook 'better-cpp-indents)
+(add-hook 'c++-mode-hook 'better-cpp-indents)
 
 ; File-hooks
 ; By default, open .h files in c++ mode.
