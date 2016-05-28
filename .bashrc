@@ -120,6 +120,9 @@ set -o vi
 alias lh='ls -lh'
 alias lrt='ls -lart'
 
+# git related
+alias gst='git status'
+
 # Alias to make homedir work
 alias dotfile-git='git --git-dir=".homedir-cfg.git"'
 
