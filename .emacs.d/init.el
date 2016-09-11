@@ -84,6 +84,11 @@
 (require 'pure-evil)
 (global-pure-evil-mode 1)
 
+; Add evil-escape so I can get out of craziness.
+(package-install 'evil-escape)
+(global-set-key (kbd "C-c C-g") 'evil-escape)
+(evil-escape-mode 1)
+
 ; Turn on solarized theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
 (setq frame-background-mode 'dark)
