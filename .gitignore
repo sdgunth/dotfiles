@@ -1,46 +1,12 @@
-# exclude non-dot files
-/[^.]*
-#
+# By default, ignore everything
+*
 
-# Ignore most dotfiles.
-/.Xauthority
-/.adobe
-/.bash_history
-/.bash_logout
-/.bash_profile
-/.cache
-/.config
-/.dbus
-/.dropbox
-/.dropbox-dist
-/.emacs.d/emacs_backups/
-/.gconf
-/.gem
-/.gnome
-/.gnome2
-/.gnome2_private
-/.gnucash
-/.gnupg
-/.gstreamer-0.10
-/.ICEauthority
-/.irssi
-/.lesshst
-/.local
-/.macromedia
-/.mkshrc
-/.mozilla
-/.npm
-/.pki
-/.profile
-/.pulse-cookie
-/.rvm
-/.ssh
-/.steam
-/.steampath
-/.steampid
-/.uml
-/.vim
-/.viminfo
-/.workrave
-/.zlogin
-/.zshrc
+# Include basic dotfiles
+!.bashrc
+!.emacs.d/init.el
+!.emacs.d/sg_custom/**
+!.gitignore
+!.i3/**
+!.i3status.conf
+!.vimrc
+!.Xresources
