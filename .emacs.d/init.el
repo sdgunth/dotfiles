@@ -1,3 +1,11 @@
+; Use MELPA
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -5,7 +13,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))))
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -13,15 +21,9 @@
  ;; If there is more than one, they won't work right.
  )
 
-; Use MELPA
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize)
 
 ; Initialize YCMD
-(defvar ycmd-package)
+(package-install 'ycmd)
 (setq ycmd-package (expand-file-name "~/bin/ycmd/ycmd"))
 (require 'ycmd)
 (add-hook 'after-init-hook #'global-ycmd-mode)
@@ -31,6 +33,7 @@
 (add-to-list 'ycmd-extra-conf-whitelist '(expand-file-name "~/Projects"))
 
 ; Add company mode to YCMD to insert completions.
+(package-install 'company-ycmd)
 (require 'company-ycmd)
 (company-ycmd-setup)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -41,11 +44,11 @@
 (package-install 'flycheck)
 (require 'flycheck)
 (global-flycheck-mode)
-(setq flycheck-clang-language-standard "c++14")
 ; Flycheck include paths
 (setq flycheck-clang-include-path '("/usr/include"))
 
 ; Integrate flycheck and ycmd
+(package-install 'flycheck-ycmd)
 (require 'flycheck-ycmd)
 (flycheck-ycmd-setup)
 (setq flycheck-indication-mode nil)
@@ -55,12 +58,11 @@
 (require 'go-mode-autoloads)
 
 ; Setup line numbers.
-(require 'relative-line-numbers)
-(global-relative-line-numbers-mode)
-(setq line-number-mode t)
+(global-linum-mode t)
 (setq column-number-mode t)
 
 ; Smart mode line
+(package-install 'smart-mode-line)
 (setq sml/name-width 20)
 (require 'smart-mode-line)
 (sml/setup)
@@ -72,10 +74,10 @@
 ;; Evil mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Enable evil mode
-(add-to-list 'load-path "~/.emacs.d/undo-tree")
-(add-to-list 'load-path "~/.emacs.d/evil")
+(package-install 'evil)
+(package-install 'undo-tree)
 (require 'evil)
-(evil-mode 1) 
+(evil-mode 1)
 
 ; I am weird, and changing my key bindings.
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/sg_custom"))
@@ -95,11 +97,17 @@
 (setq show-trailing-whitespace t)
 
 ; Make c++ indentation better
-(defun better-cpp-indents()
-  (c-set-offest 'arglist-intro '+))
-(add-hook 'java-mode-hook 'better-cpp-indents)
-(add-hook 'c-mode-hook 'better-cpp-indents)
-(add-hook 'c++-mode-hook 'better-cpp-indents)
+;(defun better-cpp-indents()
+;  (c-set-offest 'arglist-intro '+))
+;(add-hook 'java-mode-hook 'better-cpp-indents)
+;(add-hook 'c-mode-hook 'better-cpp-indents)
+;(add-hook 'c++-mode-hook 'better-cpp-indents)
+
+; Enable rust-mode
+(package-install 'rust-mode)
+
+; Enable markdown mode
+(package-install 'markdown-mode)
 
 ; File-hooks
 ; By default, open .h files in c++ mode.
@@ -108,5 +116,6 @@
 (add-to-list 'auto-mode-alist '("'BUILD'" . python-mode))
 (add-to-list 'auto-mode-alist '("'WORKSPACE'" . python-mode))
 (add-to-list 'auto-mode-alist '("\\.bzl\\'" . python-mode))
+; Enable rust-mode for .rs files
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
-;; Init complete      

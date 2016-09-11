@@ -3,7 +3,9 @@
 #
 
 # Ignore most dotfiles.
+/.Xauthority
 /.adobe
+/.bash_history
 /.bash_logout
 /.bash_profile
 /.cache
@@ -11,6 +13,7 @@
 /.dbus
 /.dropbox
 /.dropbox-dist
+/.emacs.d/emacs_backups/
 /.gconf
 /.gem
 /.gnome
@@ -26,11 +29,13 @@
 /.macromedia
 /.mkshrc
 /.mozilla
+/.npm
 /.pki
 /.profile
 /.pulse-cookie
 /.rvm
 /.ssh
+/.steam
 /.steampath
 /.steampid
 /.uml
