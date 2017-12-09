@@ -135,8 +135,8 @@ alias ei='emacsclient -t'
 # bazel aliases
 alias bazel='/home/sam/bin/bazel'
 
-# Gopath to ~/Projects
-export GOPATH='/home/sam/Projects/'
+# Gopath to ~/Projects/Go
+export GOPATH='/home/sam/Projects/Go'
 
 # Setup virtualenv and stuff:
 export WORKON_HOME=$HOME/.virtualenvs

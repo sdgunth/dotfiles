@@ -10,11 +10,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 
-call vundle#end()
+Plugin 'fatih/vim-go'
 
-filetype plugin indent on
-filetype on
-filetype plugin on
+call vundle#end()
 
 set autoindent
 set cindent
@@ -54,4 +52,16 @@ set relativenumber
 set number
 set numberwidth=4
 
-syntax on
+" Set solarized colors
+syntax enable
+
+" Go stuff
+autocmd FileType go setlocal tabstop=2
+autocmd FileType go setlocal noexpandtab
+autocmd FileType go setlocal softtabstop=2
+autocmd FileType go setlocal shiftwidth=2
+
+filetype plugin indent on
+filetype on
+filetype plugin on
+
