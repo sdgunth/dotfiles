@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -126,11 +126,10 @@ alias gst='git status'
 # Alias to make homedir work
 alias dotfile-git='git --git-dir=".homedir-cfg.git"'
 
-# emacs-related
-# Set default editors for emacs server
-export ALTERNATE_EDITOR=''
-export EDITOR='emacsclient -t'
-alias ei='emacsclient -t'
+# vi/Editor setup
+alias vi='vim'
+export EDITOR='vim'
+export ALTERNATE_EDITOR='nano'
 
 # bazel aliases
 alias bazel='/home/sam/bin/bazel'

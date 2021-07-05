@@ -8,11 +8,15 @@ call vundle#begin()
 " Vundle manages itself
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Valloric/YouCompleteMe'
-
 Plugin 'fatih/vim-go'
 
+Plugin 'altercation/vim-colors-solarized'
+
 call vundle#end()
+
+" Disable visual/audible bells
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
 
 set autoindent
 set cindent
@@ -54,6 +58,8 @@ set numberwidth=4
 
 " Set solarized colors
 syntax enable
+set background=dark
+colorscheme solarized
 
 " Go stuff
 autocmd FileType go setlocal tabstop=2
